@@ -21,3 +21,4 @@ def case(request):
         request,
         'cases.html',
     )
+
