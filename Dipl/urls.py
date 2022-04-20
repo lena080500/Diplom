@@ -19,8 +19,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cases/', include('cases.urls')),
+    path('case/', include('case.urls')),
     # Всегда переходит на ссылку сайта проекта
-    path('', RedirectView.as_view(url='/cases/',
-                                  permanent=True))
+    path('', RedirectView.as_view(url='/case/', permanent=True)),
 ]
