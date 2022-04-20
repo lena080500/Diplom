@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cases/', include('cases.urls')),
+    # Всегда переходит на ссылку сайта проекта
+    path('', RedirectView.as_view(url='/cases/',
+                                  permanent=True))
 ]
