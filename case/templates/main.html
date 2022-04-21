@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
+    {% block title %}<title>Главная страница</title>{% endblock %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% block description %}
+    <meta name="description"
+          content="Система по экономической безопасности или эффективности."/>
+    {% endblock %} <!-- для поиска в инете (теги)-->
+    {% block keywords %}
+		<meta name="keywords"
+              content="система, экономическая безопасность,
+              экономическая эффективность, производственное предприятие" />
+	{% endblock %} <!-- для поиска в инете -->
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'styles/main.css' %}" type="text/css" />
+    <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 <h1> Подсчет экономической эффективности предприятия </h1>
