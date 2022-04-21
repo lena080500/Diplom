@@ -22,3 +22,23 @@ def case(request):
         'cases.html',
     )
 
+
+def login(request):
+    return render(
+        request,
+        'registration.html',
+    )
+
+
+def contacts(request):
+    return render(
+        request,
+        'contacts.html',
+    )
+
+
+def search(request):
+    return render(
+        request,
+        'contacts.html',
+    )
