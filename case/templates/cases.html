@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<div class="container">
-  <div class="row">
+{% extends 'main.html' %}
+{% block title %}<title>"Экономическая безопасность"</title>{% endblock %}
+{% block content %}
 
-       	<table class="table table-striped">
-    <thead class="thead-light">
-    	<th>Кейcы</th>
-    	<th></th>
-    	<th></th>
-            <th></th>
-    </thead>
-  	<thead>
-  		<tr>
-  			<th>
-  				Название
-  			</th>
-  			<th>
-  				Коментарий
-  			</th>
-  			<th>
-
-  			</th>
-        <th>
-
-        </th>
-  		</tr>
-  	</thead>
-   <form method="POST2" enctype="multipart/form-data">
-        {%csrf_token%}
-  	<tbody>
-  		{%for item in cases%}
-      {%if item.jobparam_set.last.job_set.last.User == request.user%}
-  		<tr>
-    	   	<td>
-            <a href="{% url 'cases:detail' item.id %}" class="top-menu">{{item.jobparam_set.last.job_set.last}}</a>
-    		  </td>
-  		    <td>
-  			      {{item.Case_Comment}}
-  		    </td>
-    		<td>
-            <a class="related-widget-wrapper-link change-related" id="change_id_Case" data-href-template="/admin/cases/case/__fk__/change/?_to_field=id&amp;_popup=1" title="Изменить выбранный объект типа " href="/admin/cases/case/{{item.id}}/change/?_to_field=id&amp;_popup=1"   onclick="window.open(this.href, '', 'scrollbars=1,height='+Math.min(500, screen.availHeight)+',width='+Math.min(500, screen.availWidth)); return false;">Редактирование<img src="/static/admin/img/icon-changelink.svg" alt="Изменить"></a>
-    		</td>
-        <td>
-            <button type="submit" class="btn btn-danger" name ="{{item.id}}"> X </button>
-        </td>
-  		</tr>
-      {%endif%}
-  		{%endfor%}
-  	</tbody>
-    </form>
-  </table>
-  </div>
-</div>
+{% endblock %}
