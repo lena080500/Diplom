@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Контакты</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'main.html' %}
+{% block title %}<title>Контакты</title>{% endblock %}
+{% block description %}<meta name="description"
+                             content="Контакты системы." />
+{% endblock %}
+{% block keywords %}
+    <meta name="keywords"
+          content="контакты, обратная связь, обратная связь администрация" />
+{% endblock %}
+{% block content %}
+<div id="article">
+    <h2>Контакты</h2>
+    <p>Россия, 454080 <a href="https://www.susu.ru/ru/about/campus"
+                      title="Карта">Челябинск, проспект Ленина, 76</a><br>
+    Телефон: +7...<br>
+        E-mail: <a href="mailto:test@susu.ru"
+                   processed="processed">test@susu.ru</a><br>
+        Центр информации и связей с общественностью:
+        <a href="mailto:infotest@susu.ru"
+           processed="processed">infotest@susu.ru</a><br>
+     Техподдержка сайта:
+        <a href="mailto:supporttest@susu.ru"
+           processed="processed">supporttest@susu.ru</a></p>
+    © В. В. Переведенцев, ФИО, 2022
+</div>
+{% endblock %}
