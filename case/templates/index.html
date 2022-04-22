@@ -62,7 +62,15 @@
 			</div>
 		</div>
 		<div id="content">
-			  {% block content %}{% endblock %}
+			{% block content %}{% endblock %}
+			<ul>
+				{% for c in cases %}
+					<li>
+						<h2>{{c.Case_Name}}</h2>
+						<p>{{c.Case_Comment}}</p>
+					</li>
+				{% endfor %}
+			</ul>
 		</div>
 			<div id="footer">
 				<div id="pm">

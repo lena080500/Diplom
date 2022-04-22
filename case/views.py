@@ -3,15 +3,18 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 
+from .models import *
 
 # Начальная функция вывода главной страницы.
 from django.template import RequestContext
 
 
 def main(request):
+    cases = Case.objects.all()
     return render(
         request,
-        'main.html',
+        'index.html',
+        {'cases': cases}
     )
 
 
