@@ -45,6 +45,12 @@
             <li>
                 <a href="{% url 'contacts' %}">КОНТАКТЫ</a>
             </li>
+            {% load user_tags %}
+            {% if request.user|has_group:"Преподаватель" %}
+                <li>
+                    <a href="{% url 'cases' %}">КЕЙСЫ</a>
+                </li>
+            {% endif %}
         </ul>
         <div id="search"> <!--Поиск-->
             <form name="search" action="{% url 'search' %}" method="get">
