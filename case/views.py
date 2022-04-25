@@ -13,8 +13,7 @@ def main(request):
     cases = Case.objects.all()
     return render(
         request,
-        'index.html',
-        {'cases': cases}
+        'main.html',
     )
 
 
