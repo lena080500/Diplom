@@ -23,7 +23,7 @@ class Case(models.Model):
 class CaseSection(models.Model):
     case = models.ForeignKey(Case, on_delete=models.CASCADE)
     Section_Name = models.CharField('Название раздела', max_length=200)
-    Section_Comment = models.TextField('Коментарий')
+    Section_Comment = models.TextField('Комментарий')
 
     def __str__(self):
         return self.Section_Name
@@ -36,7 +36,7 @@ class CaseSection(models.Model):
 class CaseParametr(models.Model):
     case_section = models.ForeignKey(CaseSection, on_delete=models.CASCADE)
     Param_Name = models.CharField('Название параметра', max_length=200)
-    Param_Comment = models.TextField('Коментарий')
+    Param_Comment = models.TextField('Комментарий')
     #сокращенное название переменной
     Name_Variable = models.CharField('Имя переменной', max_length=20, blank=True, null=True)
     Formula = models.TextField('Формула для вычисления этого параметра', blank=True, null=True)

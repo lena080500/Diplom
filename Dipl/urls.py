@@ -8,3 +8,7 @@ urlpatterns = [
     # Всегда переходит на ссылку сайта проекта
     path('', RedirectView.as_view(url='/case/', permanent=True)),
 ]
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]

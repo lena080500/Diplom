@@ -122,3 +122,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Пользователи будут перенаправлены на главную страницу после входа в систему
+LOGIN_REDIRECT_URL = "/cases"
+
+# Для выхода пользователей из системы
+LOGOUT_REDIRECT_URL = "/cases"
