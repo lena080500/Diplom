@@ -8,77 +8,77 @@
           content="Система по экономической безопасности или эффективности."/>
     {% endblock %} <!-- для поиска в инете (теги)-->
     {% block keywords %}
-		<meta name="keywords"
-              content="система, экономическая безопасность,
-              экономическая эффективность, производственное предприятие" />
-	{% endblock %} <!-- для поиска в инете -->
+    <meta name="keywords"
+          content="система, экономическая безопасность,
+              экономическая эффективность, производственное предприятие"/>
+    {% endblock %} <!-- для поиска в инете -->
     {% load static %}
-	<link rel="stylesheet" href="{% static 'styles/main.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" type="text/css"/>
     <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
-    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/x-icon"/>
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-            <img width="50%" src="{% static 'images/yniver.png' %}" alt="Шапка"/>
-            <div class="registration">
-				<div class="items">
-					{% if request.user.is_authenticated %}
-						<div class="header">
-                    		<h3> {{ request.user.first_name }} </h3>
-                		</div>
-                    	<a href="{% url 'logout' %}">Выйти</a>
+<div id="container">
+    <div id="header">
+        <img width="50%" src="{% static 'images/yniver.png' %}" alt="Шапка"/>
+        <div class="registration">
+            <div class="items">
+                {% if request.user.is_authenticated %}
+                <div class="header">
+                    <h3> {{ request.user.first_name }} </h3>
+                </div>
+                <a href="{% url 'logout' %}">Выйти</a>
                 {% else %}
                 <div class="header">
                     <h3>Здравствуй, гость!</h3>
                 </div>
-                    <a href="{% url 'login' %}">Войти</a>
+                <a href="{% url 'login' %}">Войти</a>
                 {% endif %}
-				</div>
-			</div>
+            </div>
         </div>
-        <div id="topmenu">
-			<ul>
-				<li>
-					<a href="{% url 'main' %}">ГЛАВНАЯ</a>
-				</li>
-				<li>
-					<a href="{% url 'contacts' %}">КОНТАКТЫ</a>
-				</li>
-			</ul>
-			<div id="search"> <!--Поиск-->
-				<form name="search" action="{% url 'search' %}" method="get">
-					<table>
-						<tr>
-							<td class="input_left"></td>
-							<td>
-								<!--{{ search_form.q }}-->
-							</td>
-							<td class="input_right"></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</div>
-		<div id="content">
-			{% block content %}{% endblock %}
-			<ul>
-				{% for c in cases %}
-					<li>
-						<h2>{{c.Case_Name}}</h2>
-						<p>{{c.Case_Comment}}</p>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
-			<div id="footer">
-				<div id="pm">
-					<a href="{% url 'contacts' %}">КОНТАКТЫ</a>
-				</div>
-				<div id="copy">
-					<p>Copyright &copy; Site.ru. Все права защищены.</p>
-				</div>
-			</div>
     </div>
+    <div id="topmenu">
+        <ul>
+            <li>
+                <a href="{% url 'main' %}">ГЛАВНАЯ</a>
+            </li>
+            <li>
+                <a href="{% url 'contacts' %}">КОНТАКТЫ</a>
+            </li>
+        </ul>
+        <div id="search"> <!--Поиск-->
+            <form name="search" action="{% url 'search' %}" method="get">
+                <table>
+                    <tr>
+                        <td class="input_left"></td>
+                        <td>
+                            <!--{{ search_form.q }}-->
+                        </td>
+                        <td class="input_right"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+        <ul>
+            {% for c in cases %}
+            <li>
+                <h2>{{c.Case_Name}}</h2>
+                <p>{{c.Case_Comment}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="footer">
+        <div id="pm">
+            <a href="{% url 'contacts' %}">КОНТАКТЫ</a>
+        </div>
+        <div id="copy">
+            <p>Copyright &copy; Site.ru. Все права защищены.</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
