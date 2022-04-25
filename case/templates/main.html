@@ -48,7 +48,7 @@
             {% load user_tags %}
             {% if request.user|has_group:"Преподаватель" %}
                 <li>
-                    <a href="{% url 'cases' %}">КЕЙСЫ</a>
+                    <a href="{% url 'case' %}">КЕЙСЫ</a>
                 </li>
             {% endif %}
             {% if request.user|has_group:"Студент" %}

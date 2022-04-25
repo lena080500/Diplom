@@ -1,3 +1,21 @@
-{% extends 'index.html' %}
-{% block title %}Экономическая безопасность{% endblock %}
-{% block заголовок %}Экономическая безопасность{% endblock %}
+<!DOCTYPE html>
+<html lang="ru" class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <title>{% block title %}Кейсы{% endblock %}</title>
+</head>
+<body>
+    <p>
+        <a>Название кейса</a>
+        <input id="id_Case_Name" name="Case_Name" type="text" />
+    </p>
+    <p>
+        <a>Коммеснтарий</a>
+        <input id="id_Case_Comment" name="Case_Comment" type="text" />
+    </p>
+    <p>
+        <a>Наименование, ИНН</a>
+        <input id="id_Case_Title" name="Case_Title" type="text" />
+    </p>
+    <button>Сохранить</button>
+</body>
+</html>
