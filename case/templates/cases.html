@@ -4,18 +4,17 @@
      <title>{% block title %}Кейсы{% endblock %}</title>
 </head>
 <body>
-    <p>
-        <a>Название кейса</a>
-        <input id="id_Case_Name" name="Case_Name" type="text" />
-    </p>
-    <p>
-        <a>Коммеснтарий</a>
-        <input id="id_Case_Comment" name="Case_Comment" type="text" />
-    </p>
-    <p>
-        <a>Наименование, ИНН</a>
-        <input id="id_Case_Title" name="Case_Title" type="text" />
-    </p>
-    <button>Сохранить</button>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.Case_Name }}<br>
+        {{ form.Case_Comment }}<br>
+        {{ form.Case_Title }}<br>
+        {{ form.Case_Location }}<br>
+        {{ form.Case_Type_of_activity }}<br>
+        {{ form.Case_Production }}<br>
+        {{ form.Case_Date }}<br>
+        <span>{{ error }}</span>
+        <button type="submit">Сохронить</button>
+    </form>
 </body>
 </html>

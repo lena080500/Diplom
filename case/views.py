@@ -1,7 +1,9 @@
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
+
+from .forms import CaseForm
 from .models import *
 from django.template import RequestContext
 from django.urls import reverse_lazy
@@ -19,9 +21,25 @@ def main(request):
 
 # Начальная функция вывода страницы кейсов.
 def case(request):
+    error = ''
+    if request.method == 'POST': #Происходит ли считывание с сайта
+        form = CaseForm(request.POST) #добавили данные в form с сайта
+        if form.is_valid(): #Являются ли данные корректно заполненными
+            form.save() #сохрание в базу данных
+            #return redirect('') - переадресация на др станицу, если все добавилось
+        else: error = 'Форма была неверной'
+
+    form = CaseForm()
+
+    data = {
+        'form': form,
+        'error': error
+    }
+
     return render(
         request,
         'cases.html',
+        data
     )
 
 
