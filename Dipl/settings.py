@@ -124,7 +124,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Пользователи будут перенаправлены на главную страницу после входа в систему
-LOGIN_REDIRECT_URL = "/cases"
+LOGIN_REDIRECT_URL = "/case"
 
 # Для выхода пользователей из системы
-LOGOUT_REDIRECT_URL = "/cases"
+LOGOUT_REDIRECT_URL = "/case"
