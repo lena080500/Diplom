@@ -25,7 +25,7 @@
             <div class="items">
                 {% if request.user.is_authenticated %}
                 <div class="header">
-                    <h3> {{ request.user.first_name }} </h3>
+                    <h3> Здравствуй, {{ request.user.first_name }} </h3>
                 </div>
                 <a href="{% url 'logout' %}">Выйти</a>
                 {% else %}
