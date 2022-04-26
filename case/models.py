@@ -43,6 +43,43 @@ class CaseParametr(models.Model):
     Param_Period = models.DateField('Период сбора данных')
     Param_Value = models.FloatField('Значение параметра', blank=True, null=True, default=None)
 
+#поиск значения по имени переменной
+    def getValue(name):
+        object = CaseParametr.objects.all()
+        for o in object:
+            if name == o.Name_Variable:
+                return o.Param_Value
+        return None
+
+#Замена имён переменных на их значения
+    def newFormula(self):
+        formula = self.Formula
+        newformula = ""
+        param = ""
+        value = 0
+        for i, val in enumerate(formula, start=1):
+            if (val != '(') and (val != ')') and (val != '*') and (val != '/') and (val != '+') and (val != '-') and (val != ' '):
+                param = param + val
+            else:
+                if ((val == '+') or (val == '-') or (val == '*') or (val == '/') or (val == ')') or (val == '(')) and (param != ""):
+                    value = CaseParametr.getValue(param)
+                    if value == None:
+                        newformula = newformula + param
+                    else:
+                        newformula = newformula + f'{value}'
+                    param = ""
+                newformula = newformula + val
+        value = CaseParametr.getValue(param)
+        if value == None:
+            newformula = newformula + param
+        else:
+            newformula = newformula + f'{value}'
+        CaseParametr.Сalculator(newformula)
+
+#Считает только если в формуле одни числа
+    def Сalculator(formula):
+        return print(eval(formula))
+
     def __str__(self):
         return self.Param_Name
 

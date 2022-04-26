@@ -59,11 +59,12 @@ def contacts(request):
 
 
 def param(request):
-    parametr = CaseParametr.objects.all()
+    parametr = CaseParametr.objects.get(pk=1)
+    CaseParametr.newFormula(parametr)
     return render(
         request,
         'param.html',
-        {'parametr': parametr}
+        #{'parametr': parametr}
     )
 
 
