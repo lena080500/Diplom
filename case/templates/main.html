@@ -50,6 +50,9 @@
                 <li>
                     <a href="{% url 'case' %}">КЕЙСЫ</a>
                 </li>
+                <li>
+                    <a href="{% url 'param' %}">Параментры</a>
+                </li>
             {% endif %}
             {% if request.user|has_group:"Студент" %}
                 <li>
@@ -58,7 +61,7 @@
             {% endif %}
         </ul>
         <div id="search"> <!--Поиск-->
-            <form name="search" action="{% url 'search' %}" method="get">
+            <form name="search" action="#" method="get">
                 <table>
                     <tr>
                         <td class="input_left"></td>

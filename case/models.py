@@ -38,10 +38,10 @@ class CaseParametr(models.Model):
     Param_Name = models.CharField('Название параметра', max_length=200)
     Param_Comment = models.TextField('Комментарий')
     #сокращенное название переменной
-    Name_Variable = models.CharField('Имя переменной', max_length=20, blank=True, null=True)
-    Formula = models.TextField('Формула для вычисления этого параметра', blank=True, null=True)
-    Param_Period = models.DateField('Период сбора данных', blank=True)
-    Param_Value = models.FloatField('Значение параметра', null=True)
+    Name_Variable = models.CharField('Имя переменной', max_length=5)
+    Formula = models.TextField('Формула для вычисления этого параметра')
+    Param_Period = models.DateField('Период сбора данных')
+    Param_Value = models.FloatField('Значение параметра')
 
     def __str__(self):
         return self.Param_Name

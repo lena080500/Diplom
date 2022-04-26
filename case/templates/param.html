@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Параметры</title>
+</head>
+<body>
+    <div id="content">
+        <ul>
+            {% for p in parametr %}
+            <tr>
+                <td>{{p.Param_Name}}</td><br>
+                <td>{{p.Param_Comment}}</td><br>
+                <td>{{c.Name_Variable}}</td><br>
+                <td>{{c.Formula}}</td><br>
+                <td>{{c.Param_Value}}</td><br>
+            </tr>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

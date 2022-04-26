@@ -16,6 +16,7 @@ def main(request):
     return render(
         request,
         'main.html',
+        #{'cases': cases} передать всю информацию о кейсах
     )
 
 
@@ -57,10 +58,12 @@ def contacts(request):
     )
 
 
-def search(request):
+def param(request):
+    parametr = CaseParametr.objects.all()
     return render(
         request,
-        'contacts.html',
+        'param.html',
+        {'parametr': parametr}
     )
 
 
