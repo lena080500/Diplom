@@ -54,6 +54,8 @@ class CaseParametr(models.Model):
 #Замена имён переменных на их значения
     def newFormula(self):
         formula = self.Formula
+        if formula == "":
+            return
         newformula = ""
         param = ""
         value = 0
@@ -74,11 +76,12 @@ class CaseParametr(models.Model):
             newformula = newformula + param
         else:
             newformula = newformula + f'{value}'
-        CaseParametr.Сalculator(newformula)
+        value = CaseParametr.Сalculator(newformula)
+        self.Param_Value = value
 
 #Считает только если в формуле одни числа
     def Сalculator(formula):
-        return print(eval(formula))
+        return eval(formula)
 
     def __str__(self):
         return self.Param_Name
