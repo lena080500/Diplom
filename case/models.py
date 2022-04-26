@@ -36,12 +36,12 @@ class CaseSection(models.Model):
 class CaseParametr(models.Model):
     case_section = models.ForeignKey(CaseSection, on_delete=models.CASCADE)
     Param_Name = models.CharField('Название параметра', max_length=200)
-    Param_Comment = models.TextField('Комментарий')
+    Param_Comment = models.TextField('Комментарий', blank=True)
     #сокращенное название переменной
     Name_Variable = models.CharField('Имя переменной', max_length=5)
-    Formula = models.TextField('Формула для вычисления этого параметра')
+    Formula = models.TextField('Формула для вычисления этого параметра', blank=True)
     Param_Period = models.DateField('Период сбора данных')
-    Param_Value = models.FloatField('Значение параметра')
+    Param_Value = models.FloatField('Значение параметра', blank=True, null=True, default=None)
 
     def __str__(self):
         return self.Param_Name

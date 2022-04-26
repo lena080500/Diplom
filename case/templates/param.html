@@ -7,15 +7,30 @@
 <body>
     <div id="content">
         <ul>
-            {% for p in parametr %}
-            <tr>
-                <td>{{p.Param_Name}}</td><br>
-                <td>{{p.Param_Comment}}</td><br>
-                <td>{{c.Name_Variable}}</td><br>
-                <td>{{c.Formula}}</td><br>
-                <td>{{c.Param_Value}}</td><br>
-            </tr>
-            {% endfor %}
+            <table border="1">
+                <tr>
+                    <th>Название параметра</th>
+                    <th>Комментарий</th>
+                    <th>Имя переменной</th>
+                    <th>Формула</th>
+                    <th>Знаечние</th>
+                </tr>
+                {% for p in parametr %}
+                <tr>
+                    <td>{{p.Param_Name}}</td>
+                    {% if p.Param_Comment == "" %}
+                        <th>-</th>
+                    {% else %}
+                        <td>{{p.Param_Comment}}</td>
+                    {% endif %}
+                    <td>{{p.Name_Variable}}</td>
+                    <td>{{p.Formula}}</td>
+                    {% if p.Param_Value != None %}
+                        <td>{{p.Param_Value}}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
         </ul>
     </div>
 </body>
